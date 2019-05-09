@@ -7,7 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label>text</Label>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>News</Label>
+                <Label>Games</Label>
+            </StackPanel>
+            
+            <StackPanel Margin="10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="20">Title + url</Label>
+                        <Label Margin=" 30 0">Date</Label>
+                        <Label>Feedlabel</Label>
+                    </StackPanel>
+                    <Label FontSize="14">Autor</Label>
+                    
+                    
+                </StackPanel>                
+                <Label>Content</Label>
+                
+                
+            </StackPanel>
+        </StackPanel>
+        
+        
         
     </Grid>
 </Window>
