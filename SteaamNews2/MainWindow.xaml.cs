@@ -21,7 +21,7 @@ namespace SteaamNews2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<News> Items { get; set; } //inotifypropetychanged  binding
+        public ObservableCollection<News> Items { get; set; } //inotifypropetychanged  on list / binding mmvm lite/prison
         public MainWindow()
         {
             InitializeComponent();
