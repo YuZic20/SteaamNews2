@@ -6,29 +6,57 @@
         xmlns:local="clr-namespace:SteaamNews2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>News</Label>
-                <Label>Games</Label>
+    <Grid Background="#b9b7b5">
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>News</Label>
+                    <Label>Edit Games</Label>
+                    <Label>Options</Label>
+                </StackPanel>
+
+
+                <ItemsControl x:Name="AllItems" Background="#262626">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel>
+                                    <StackPanel Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label x:Name="TitleUC" FontSize="20" Foreground="#b9b7b5" Content="{Binding Title}" ></Label>
+                                                <Label x:Name="DateUC" Margin=" 30 0" Foreground="#b9b7b5" Content="{Binding Date}"></Label>
+                                                <Label x:Name="FeedLabelUC" Foreground="#b9b7b5" Content="{Binding FeedLabel}"></Label>
+                                            </StackPanel>
+                                            <Label x:Name="AutorUC" FontSize="14" Foreground="#b9b7b5" Content="{Binding Autor}" ></Label>
+                                            <TextBlock x:Name="ContentUC" Foreground="#b9b7b5" TextWrapping="Wrap" Text="{Binding NewsContent}"></TextBlock>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                    <Rectangle Height="3" Fill="#b9b7b5"></Rectangle>
+                                </StackPanel>
+
+
+
+                            </Grid>
+
+
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+
+
+                </ItemsControl>
+                <Button Click="Button_Click">
+                    add
+                </Button>
+                <Button Click="Button_Click_1">
+                    -
+                </Button>
             </StackPanel>
-            
-            <StackPanel Margin="10">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label FontSize="20">Title + url</Label>
-                        <Label Margin=" 30 0">Date</Label>
-                        <Label>Feedlabel</Label>
-                    </StackPanel>
-                    <Label FontSize="14">Autor</Label>
-                    
-                    
-                </StackPanel>                
-                <Label>Content</Label>
-                
-                
-            </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
+        
         
         
         

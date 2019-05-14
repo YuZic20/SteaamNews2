@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="SteaamNews2.NewsItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SteaamNews2"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="TitleUC" FontSize="20" Foreground="#b9b7b5">Title + url</Label>
+                        <Label x:Name="DateUC" Margin=" 30 0" Foreground="#b9b7b5">Date</Label>
+                        <Label x:Name="FeedLabelUC" Foreground="#b9b7b5">Feedlabel</Label>
+                    </StackPanel>
+                    <Label x:Name="AutorUC" FontSize="14" Foreground="#b9b7b5">Autor</Label>
+                    <TextBlock x:Name="ContentUC" Foreground="#b9b7b5" TextWrapping="Wrap">Content sdgfsdfgs dfgsdfgsdfg sdfgsdfgdfsdfsdfsdfsdfs dfsdsfg sdfg sdfgsdfgsdfg sdf sdk gjsdfglsdf glsdfj gsfgsdjfg sldfkjgsjdfng sdjfkgskdfjgbs dfgsdfkjgbsdkfj sfj gssdfhbgskfdhbgs kdjfsdfj gsjkdf</TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+            <Rectangle Height="3" Fill="#b9b7b5"></Rectangle>
+        </StackPanel>
+        
+        
+        
+    </Grid>
+</UserControl>
