@@ -8,10 +8,10 @@ namespace SteaamNews2
 {
     public class News
     {
-        public string Title { get; set; }
-        public string Date { get; set; }
-        public string FeedLabel { get; set; }
-        public string Autor { get; set; }
-        public string NewsContent { get; set; }
+        public string title { get; set; }
+        public string date { get; set; }
+        public string feedname { get; set; }
+        public string author { get; set; }
+        public string contents { get; set; }
     }
 }

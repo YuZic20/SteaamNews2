@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteaamNews2"
+        xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#b9b7b5">
@@ -24,12 +25,14 @@
                                     <StackPanel Margin="10">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <Label x:Name="TitleUC" FontSize="20" Foreground="#b9b7b5" Content="{Binding Title}" ></Label>
-                                                <Label x:Name="DateUC" Margin=" 30 0" Foreground="#b9b7b5" Content="{Binding Date}"></Label>
-                                                <Label x:Name="FeedLabelUC" Foreground="#b9b7b5" Content="{Binding FeedLabel}"></Label>
+                                                <Label x:Name="TitleUC" FontSize="20" Foreground="#b9b7b5" Content="{Binding title}" ></Label>
+                                                <Label x:Name="FeedLabelUC" Foreground="#b9b7b5" Content="{Binding feedname}"></Label>
+
                                             </StackPanel>
-                                            <Label x:Name="AutorUC" FontSize="14" Foreground="#b9b7b5" Content="{Binding Autor}" ></Label>
-                                            <TextBlock x:Name="ContentUC" Foreground="#b9b7b5" TextWrapping="Wrap" Text="{Binding NewsContent}"></TextBlock>
+                                            <Label x:Name="AutorUC" FontSize="14" Foreground="#b9b7b5" Content="{Binding autor}" ></Label>
+                                            <wpf:HtmlPanel Foreground="#b9b7b5" Background="#262626" x:Name="ContentUC" Text="{Binding contents}"/>
+
+                                            
                                         </StackPanel>
 
                                     </StackPanel>
@@ -39,7 +42,7 @@
 
 
                             </Grid>
-
+        
 
 
                         </DataTemplate>

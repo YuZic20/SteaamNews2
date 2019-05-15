@@ -18,14 +18,14 @@ namespace SteaamNews2
     /// <summary>
     /// Interakční logika pro NewsItem.xaml
     /// </summary>
-    public partial class NewsItem : UserControl
+    public partial class NewsItemVisual : UserControl
     {
         public string Title { get { return (string)TitleUC.Content; }set { TitleUC.Content = value; } }
         public string Date { get { return (string)DateUC.Content; } set { DateUC.Content = value; } }
         public string FeedLabel { get { return (string)FeedLabelUC.Content; } set { FeedLabelUC.Content = value; } }
         public string Autor { get { return (string)AutorUC.Content; } set { AutorUC.Content = value; } }
         public string NewsContent { get { return (string)ContentUC.Text; } set { ContentUC.Text = value; } }
-        public NewsItem()
+        public NewsItemVisual()
         {
             InitializeComponent();
         }

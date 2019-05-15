@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SteaamNews2.Properties
+namespace Appnews.Properties
 {
 
 
