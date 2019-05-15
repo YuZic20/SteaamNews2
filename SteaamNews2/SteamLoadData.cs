@@ -46,6 +46,48 @@ namespace SteaamNews2
 
            
         }
+        static public List<newsitem> GetNewsByIDs(List<int> IDs, int Count, int Max)
+        {
+            RootObject NewsList = new RootObject();
+            List<newsitem> newsitems = new List<newsitem>();
+
+            foreach(int ID in IDs)
+            {
+                HttpResponseMessage uff = GetNewsAPI(client, ID, Count, Max).GetAwaiter().GetResult();
+                string text = uff.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                // text = text.Replace("\\", "");
+
+
+                if (uff.StatusCode == HttpStatusCode.OK)
+                {
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        try
+                        {
+                            
+                            NewsList = JsonConvert.DeserializeObject<RootObject>(text);
+
+                            newsitems.InsertRange(0,NewsList.appnews.newsitems);
+
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+                    }
+
+
+                }
+            }
+
+            
+
+            return newsitems;
+
+
+
+
+        }
         public static Task<HttpResponseMessage> GetNewsAPI(HttpClient client, int ID, int Count, int Max)
         {
             return client.GetAsync("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid="+ID+"&count="+Count+"&maxlength="+Max+"&format=json");
