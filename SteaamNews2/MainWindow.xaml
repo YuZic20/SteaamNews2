@@ -9,14 +9,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#b9b7b5">
         <ScrollViewer>
+            <Grid>
+                
+            
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Background="#262626">
                     <Button Name="News" Foreground="#b9b7b5" Background="#262626" Click="News_Click">News</Button>
                     <Button Name="EditGames" Foreground="#b9b7b5" Background="#262626" Click="EditGames_Click">Edit Games</Button>
 
                 </StackPanel>
-
-                <Grid Name="NewsWindow">
+            </StackPanel>
+                <StackPanel Margin="0 20 0 0">
+            <Grid Name="NewsWindow">
                     <ItemsControl x:Name="AllItems" Background="#b9b7b5">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
@@ -26,10 +30,11 @@
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal">
                                                     <Label x:Name="TitleUC" FontSize="20" Foreground="#262626" Content="{Binding title}" ></Label>
-                                                    <Label x:Name="FeedLabelUC" Foreground="#262626" Content="{Binding feedname}"></Label>
+                                                    <Label x:Name="FeedLabelUC" Foreground="#262626" Content="{Binding appid}"></Label>
 
                                                 </StackPanel>
-                                                <Label x:Name="AutorUC" FontSize="14" Foreground="#b9b7b5" Content="{Binding autor}" ></Label>
+                                                    <Label x:Name="AutorUC" FontSize="14" Foreground="#262626" Content="{Binding author}" ></Label>
+
                                                 <wpf:HtmlPanel Background="#b9b7b5" x:Name="ContentUC" Text="{Binding contents}"/>
 
 
@@ -53,43 +58,50 @@
                     </ItemsControl>
                     <Label Name="IsEmpty" Visibility="Hidden">To add news feed press Edit Games and add ids of your favorite games</Label>
                 </Grid>
-                <Grid Name="GameEditWindow">
-                    <ItemsControl x:Name="AllGames" Background="#b9b7b5">
+                </StackPanel>
+                <StackPanel Margin="0 20 0 0">
+            <Grid Name="GameEditWindow">
+                    <StackPanel>
                         <Label>To add new game please insert its gameID</Label>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Width="60"></TextBox>
+                            <TextBox Name="GameIdInput" Width="60"></TextBox>
                             <Button Name="SendButton" Click="SendButton_Click" Width="20">+</Button>
-                            
+
                         </StackPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <StackPanel>
-                                        <StackPanel Margin="10">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Label Content="{Binding}"></Label>
-                                                <Button Click="Button_Click" Tag="{Binding}">-</Button>
+                        <ItemsControl x:Name="AllGames" Background="#b9b7b5">
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <StackPanel>
+                                            <StackPanel Margin="10">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Label Content="{Binding}"></Label>
+                                                    <Button Click="Button_Click" Width="20" Tag="{Binding}" >-</Button>
+                                                </StackPanel>
+
                                             </StackPanel>
-
+                                            <Rectangle Height="3" Fill="#262626"></Rectangle>
                                         </StackPanel>
-                                        <Rectangle Height="3" Fill="#262626"></Rectangle>
-                                    </StackPanel>
 
 
 
-                                </Grid>
+                                    </Grid>
 
 
 
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
 
 
 
-                    </ItemsControl>
+                        </ItemsControl>
+                    </StackPanel>
+                    
                 </Grid>
-                
-            </StackPanel>
+                </StackPanel>
+
+            </Grid>
         </ScrollViewer>
         
         

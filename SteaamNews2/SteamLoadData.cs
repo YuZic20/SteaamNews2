@@ -13,7 +13,7 @@ namespace SteaamNews2
     {
         static HttpClient client = new HttpClient();
 
-        static public List<newsitem> GetNewsByID(int ID, int Count, int Max)
+        static public List<newsitem> GetNewsByID(int ID, int Count =2, int Max=100000)
         {
             RootObject NewsList = new RootObject();
 
@@ -46,7 +46,7 @@ namespace SteaamNews2
 
            
         }
-        static public List<newsitem> GetNewsByIDs(List<int> IDs, int Count, int Max)
+        static public List<newsitem> GetNewsByIDs(List<int> IDs, int Count = 2, int Max = 10000)
         {
             RootObject NewsList = new RootObject();
             List<newsitem> newsitems = new List<newsitem>();

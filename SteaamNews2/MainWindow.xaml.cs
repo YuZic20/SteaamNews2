@@ -28,12 +28,15 @@ namespace SteaamNews2
             InitializeComponent();
 
             AppID = new ObservableCollection<int>(DataHandle.LoadIds());
-            Items = new ObservableCollection<newsitem>(SteamLoadData.GetNewsByIDs(AppID.ToList(), 3, 1000));
-            
-            AllItems.ItemsSource = Items;
-            AllItems.ItemsSource = AppID;
+            Items = new ObservableCollection<newsitem>(SteamLoadData.GetNewsByIDs(AppID.ToList()));
 
-            if(Items.Count()==0)
+            AllItems.ItemsSource = Items = new ObservableCollection<newsitem>(SteamLoadData.GetNewsByIDs(AppID.ToList()));
+            AllGames.ItemsSource = AppID;
+
+            NewsWindow.Visibility = Visibility.Visible;
+            GameEditWindow.Visibility = Visibility.Hidden;
+
+            if (Items.Count()==0)
             {
                 IsEmpty.Visibility = Visibility.Visible;
             }
@@ -42,22 +45,34 @@ namespace SteaamNews2
 
         private void News_Click(object sender, RoutedEventArgs e)
         {
-
+            NewsWindow.Visibility = Visibility.Visible;
+            GameEditWindow.Visibility = Visibility.Hidden;
+            AllItems.ItemsSource = Items = new ObservableCollection<newsitem>(SteamLoadData.GetNewsByIDs(AppID.ToList()));
         }
 
         private void EditGames_Click(object sender, RoutedEventArgs e)
         {
-
+            NewsWindow.Visibility = Visibility.Hidden;
+            GameEditWindow.Visibility = Visibility.Visible;
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            var isNumeric = int.TryParse(GameIdInput.Text, out int n);
+            if (isNumeric)
+            {
+                AppID.Add(n);
+            }
+            GameIdInput.Clear();
+            DataHandle.SaveIds(AppID.ToList());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = (Button)sender;
+            AppID.Remove((int)button.Tag);
+            DataHandle.SaveIds(AppID.ToList());
         }
     }
 }
